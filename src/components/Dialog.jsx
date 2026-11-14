@@ -7,8 +7,16 @@ const initialForm = {
   year: '',
 }
 
-function Dialog({ onClose, onSubmit }) {
-  const [formData, setFormData] = useState(initialForm)
+function Dialog({ student = null, onClose, onSubmit }) {
+  const [formData, setFormData] = useState(() =>
+    student
+      ? {
+          studentName: student.studentName,
+          department: student.department,
+          year: student.year,
+        }
+      : initialForm,
+  )
   const dialogRef = useRef(null)
   const firstInputRef = useRef(null)
 
@@ -70,7 +78,9 @@ function Dialog({ onClose, onSubmit }) {
           <X size={21} aria-hidden="true" />
         </button>
 
-        <h2 id="student-dialog-title">Add Student</h2>
+        <h2 id="student-dialog-title">
+          {student ? 'Edit Student' : 'Add Student'}
+        </h2>
 
         <form className="student-form" onSubmit={handleSubmit}>
           <label htmlFor="student-name">
@@ -115,7 +125,7 @@ function Dialog({ onClose, onSubmit }) {
           </label>
 
           <button type="submit" className="submit-student-button">
-            Submit
+            {student ? 'Save changes' : 'Submit'}
           </button>
         </form>
       </section>

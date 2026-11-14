@@ -157,6 +157,55 @@ button {
   color: #344054;
 }
 
+.student-actions-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edit-student-button,
+.delete-student-button {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.edit-student-button {
+  color: #123b70;
+}
+
+.edit-student-button:hover {
+  background: #e8eff8;
+  color: #0c2e59;
+}
+
+.delete-student-button {
+  color: #dc2626;
+}
+
+.delete-student-button:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.delete-student-button:focus-visible {
+  outline: 3px solid #fca5a5;
+  outline-offset: 2px;
+}
+
+.edit-student-button:focus-visible {
+  outline: 3px solid #6b9fdf;
+  outline-offset: 2px;
+}
+
 .student-table tbody tr:last-child td {
   border-bottom: 0;
 }
